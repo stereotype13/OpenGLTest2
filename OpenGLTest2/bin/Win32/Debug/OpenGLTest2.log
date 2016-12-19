@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(120): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(313): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(316): warning C4244: 'argument': conversion from 'double' to 'const GLfloat', possible loss of data
+  OpenGLTest2.vcxproj -> c:\Users\rhodel\documents\visual studio 2015\Projects\OpenGLTest2\OpenGLTest2\bin\Win32\Debug\OpenGLTest2.exe
+  OpenGLTest2.vcxproj -> c:\Users\rhodel\documents\visual studio 2015\Projects\OpenGLTest2\OpenGLTest2\bin\Win32\Debug\OpenGLTest2.pdb (Partial PDB)
