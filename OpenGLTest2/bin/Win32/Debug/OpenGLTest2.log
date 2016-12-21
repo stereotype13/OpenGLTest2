@@ -1,7 +1,16 @@
-﻿  main.cpp
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(18): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(248): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(580): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(595): warning C4244: 'argument': conversion from 'double' to 'const GLfloat', possible loss of data
+﻿  vec4.cpp
+  vec3.cpp
+  utils.cpp
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\math\utils.cpp(6): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  mat4.cpp
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\math\mat4.cpp(8): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\main.cpp(188): warning C4305: '-=': truncation from 'double' to 'float'
+  rectangle.cpp
+  box.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\rhodel\Documents\Visual Studio 2015\Projects\OpenGLTest2\OpenGLTest2\bin\Win32\Debug\vc120.pdb'; linking object as if no debug info
   OpenGLTest2.vcxproj -> C:\Users\rhodel\Documents\Visual Studio 2015\Projects\OpenGLTest2\OpenGLTest2\bin\Win32\Debug\OpenGLTest2.exe
   OpenGLTest2.vcxproj -> C:\Users\rhodel\Documents\Visual Studio 2015\Projects\OpenGLTest2\OpenGLTest2\bin\Win32\Debug\OpenGLTest2.pdb (Partial PDB)

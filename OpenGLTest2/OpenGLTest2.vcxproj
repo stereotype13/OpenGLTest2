@@ -147,7 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\box.cpp" />
+    <ClCompile Include="src\graphics\rectangle.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\math\mat4.cpp" />
+    <ClCompile Include="src\math\utils.cpp" />
+    <ClCompile Include="src\math\vec3.cpp" />
+    <ClCompile Include="src\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GLFW\glfw3.h" />
@@ -157,6 +163,14 @@
     <ClInclude Include="include\GL\glew.h" />
     <ClInclude Include="include\GL\glxew.h" />
     <ClInclude Include="include\GL\wglew.h" />
+    <ClInclude Include="src\graphics\box.h" />
+    <ClInclude Include="src\graphics\rectangle.h" />
+    <ClInclude Include="src\graphics\renderable.h" />
+    <ClInclude Include="src\graphics\vertex.h" />
+    <ClInclude Include="src\math\mat4.h" />
+    <ClInclude Include="src\math\utils.h" />
+    <ClInclude Include="src\math\vec3.h" />
+    <ClInclude Include="src\math\vec4.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\x86\glew32s.lib" />
