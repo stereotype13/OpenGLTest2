@@ -1,5 +1,6 @@
 #include "mat4.h"
 #include "utils.h"
+#include <math.h>
 #include <string>
 
 namespace VR { namespace math {
@@ -33,7 +34,7 @@ vec4& mat4::operator[](const int index) {
 	return mRows[index];
 }
 
-vec4 mat4::operator*(vec4& rhs) {
+vec4 mat4::operator*(const vec4& rhs) {
 	vec4 result;
 	result[0] = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3] * rhs.w;
 	result[1] = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3] * rhs.w;
@@ -42,7 +43,7 @@ vec4 mat4::operator*(vec4& rhs) {
 	return result;
 }
 
-vec3 mat4::operator*(vec3& rhs) {
+vec3 mat4::operator*(const vec3& rhs) {
 	vec3 result;
 	result[0] = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3];
 	result[1] = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3];
@@ -69,7 +70,7 @@ mat4 mat4::Identity() {
 	return mat4(1.0f);
 }
 
-mat4 mat4::Translation(vec3& translationVector) {
+mat4 mat4::Translation(const vec3& translationVector) {
 	mat4 translationMatrix = Identity();
 	translationMatrix.mData[0 * 4 + 3] = translationVector.x;
 	translationMatrix.mData[1 * 4 + 3] = translationVector.y;
@@ -79,8 +80,8 @@ mat4 mat4::Translation(vec3& translationVector) {
 
 mat4 mat4::RotationX(const float& theta) {
 	mat4 rotationMatrix = Identity();
-	float c = std::cos(theta);
-	float s = std::sin(theta);
+	float c = cos(theta);
+	float s = sin(theta);
 	rotationMatrix.mData[1 * 4 + 1] = c;
 	rotationMatrix.mData[1 * 4 + 2] = -s;
 	rotationMatrix.mData[2 * 4 + 1] = s;
@@ -90,8 +91,8 @@ mat4 mat4::RotationX(const float& theta) {
 
 mat4 mat4::RotationY(const float& theta) {
 	mat4 rotationMatrix = Identity();
-	float c = std::cos(theta);
-	float s = std::sin(theta);
+	float c = cos(theta);
+	float s = sin(theta);
 	rotationMatrix.mData[0 * 4 + 0] = c;
 	rotationMatrix.mData[0 * 4 + 2] = s;
 	rotationMatrix.mData[2 * 4 + 0] = -s;
@@ -101,8 +102,8 @@ mat4 mat4::RotationY(const float& theta) {
 
 mat4 mat4::RotationZ(const float& theta) {
 	mat4 rotationMatrix = Identity();
-	float c = std::cos(theta);
-	float s = std::sin(theta);
+	float c = cos(theta);
+	float s = sin(theta);
 	rotationMatrix.mData[0 * 4 + 0] = c;
 	rotationMatrix.mData[0 * 4 + 1] = -s;
 	rotationMatrix.mData[1 * 4 + 0] = s;
@@ -125,7 +126,7 @@ mat4 mat4::Perspective(float fov, float aspectRatio, float near, float far)
 {
 	mat4 result(1.0f);
 
-	float q = 1.0f / std::tan(Utils::toRadians(0.5f * fov));
+	float q = 1.0f / tan(Utils::toRadians(0.5f * fov));
 	float a = q / aspectRatio;
 
 	float b = (near + far) / (near - far);
@@ -140,7 +141,7 @@ mat4 mat4::Perspective(float fov, float aspectRatio, float near, float far)
 	return result;
 }
 
-mat4 mat4::LookAt(vec3& camera, vec3& object, vec3& up)
+mat4 mat4::LookAt(const vec3& camera, const vec3& object, const vec3& up)
 {
 
 	mat4 result = Identity();

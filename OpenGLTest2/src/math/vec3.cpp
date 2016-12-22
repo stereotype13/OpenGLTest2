@@ -5,11 +5,11 @@ namespace VR { namespace math {
 	
 vec3::vec3(const float& x, const float& y, const float& z) : x{ x }, y{ y }, z{ z } { }
 
-float vec3::Magnitude() {
+float vec3::Magnitude() const {
 	return (float)sqrt(x * x + y * y + z * z);
 }
 
-vec3 vec3::Normalize() {
+vec3 vec3::Normalize() const {
 	float length = Magnitude();
 	return vec3(x / length, y / length, z / length);
 }
@@ -22,11 +22,11 @@ float& vec3::operator[](const int& index) {
 	return *((float*)this + index);
 }
 
-float vec3::operator*(vec3& rhs) {
+float vec3::operator*(const vec3& rhs) const {
 	return (x * rhs.x + y * rhs.y + z * rhs.z);
 }
 
-vec3 vec3::operator-(vec3& rhs) {
+vec3 vec3::operator-(const vec3& rhs) const {
 	vec3 result = *this;
 	result.x -= rhs.x;
 	result.y -= rhs.y;

@@ -19,15 +19,15 @@ public:
 
 	vec4& operator[](const int index);
 
-	vec4 operator*(vec4& rhs);
+	vec4 operator*(const vec4& rhs);
 
-	vec3 operator*(vec3& rhs);
+	vec3 operator*(const vec3& rhs);
 
 	mat4& operator*(const mat4& other);
 
 	static mat4 Identity();
 
-	static mat4 Translation(vec3& translationVector);
+	static mat4 Translation(const vec3& translationVector);
 
 	static mat4 RotationX(const float& theta);
 
@@ -39,7 +39,7 @@ public:
 
 	static mat4 Perspective(float fov, float aspectRatio, float near, float far);
 
-	static mat4 LookAt(vec3& camera, vec3& object, vec3& up);
+	static mat4 LookAt(const vec3& camera, const vec3& object, const vec3& up);
 };
 
 } }

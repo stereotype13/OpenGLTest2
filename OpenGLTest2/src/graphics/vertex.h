@@ -9,7 +9,7 @@ namespace VR {
 		VR::math::vec3 Position;
 		VR::math::vec4 Color;
 
-		Vertex(VR::math::vec3& position, VR::math::vec4& color) : Position{ position }, Color{ color } {};
+		Vertex(const VR::math::vec3& position, const VR::math::vec4& color) : Position{ position }, Color{ color } {};
 	};
 
 }
