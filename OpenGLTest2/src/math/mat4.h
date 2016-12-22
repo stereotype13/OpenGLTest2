@@ -11,6 +11,8 @@ public:
 		vec4 mRows[4];
 	};
 
+	mat4() = default;
+
 	mat4(const float& diagonal);
 
 	vec4 getColumn(const int& index);

@@ -148,12 +148,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\graphics\box.cpp" />
+    <ClCompile Include="src\graphics\openglarraybuffer.cpp" />
+    <ClCompile Include="src\graphics\openglindexbuffer.cpp" />
+    <ClCompile Include="src\graphics\openglrenderer.cpp" />
+    <ClCompile Include="src\graphics\openglshader.cpp" />
     <ClCompile Include="src\graphics\rectangle.cpp" />
+    <ClCompile Include="src\graphics\renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\mat4.cpp" />
     <ClCompile Include="src\math\utils.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
     <ClCompile Include="src\math\vec4.cpp" />
+    <ClCompile Include="src\utils\clock.cpp" />
+    <ClCompile Include="src\utils\textloader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GLFW\glfw3.h" />
@@ -164,13 +171,23 @@
     <ClInclude Include="include\GL\glxew.h" />
     <ClInclude Include="include\GL\wglew.h" />
     <ClInclude Include="src\graphics\box.h" />
+    <ClInclude Include="src\graphics\buffer.h" />
+    <ClInclude Include="src\graphics\openglarraybuffer.h" />
+    <ClInclude Include="src\graphics\openglindexbuffer.h" />
+    <ClInclude Include="src\graphics\openglrenderer.h" />
+    <ClInclude Include="src\graphics\openglshader.h" />
     <ClInclude Include="src\graphics\rectangle.h" />
     <ClInclude Include="src\graphics\renderable.h" />
+    <ClInclude Include="src\graphics\renderer.h" />
+    <ClInclude Include="src\graphics\shader.h" />
     <ClInclude Include="src\graphics\vertex.h" />
+    <ClInclude Include="src\math\constants.h" />
     <ClInclude Include="src\math\mat4.h" />
     <ClInclude Include="src\math\utils.h" />
     <ClInclude Include="src\math\vec3.h" />
     <ClInclude Include="src\math\vec4.h" />
+    <ClInclude Include="src\utils\clock.h" />
+    <ClInclude Include="src\utils\textloader.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\x86\glew32s.lib" />
