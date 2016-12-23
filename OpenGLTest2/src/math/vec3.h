@@ -2,6 +2,9 @@
 
 namespace VR { namespace math {
 
+//forward declaration
+class mat4;
+
 class vec3 {
 public:
 	float x, y, z;
@@ -17,6 +20,8 @@ public:
 	float& operator[](const int& index);
 
 	float operator*(const vec3& rhs) const;
+
+	void operator*=(mat4& transform);
 
 	vec3 operator-(const vec3& rhs) const;
 };

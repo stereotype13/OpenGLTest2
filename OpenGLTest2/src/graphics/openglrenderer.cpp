@@ -61,22 +61,23 @@ namespace VR {
 
 		mShader.useShader();
 
-		mTotalEllapsedTime += delta;
-		if (mTotalEllapsedTime > 2 * PI)
-			mTotalEllapsedTime -= 2 * PI;
+		const GLfloat omega = 0.5f;
+
+		mTheta += delta * omega;
+		if (mTheta > 2 * PI)
+			mTheta -= 2 * PI;
 
 		VR::math::mat4* rotationMatrixY = new VR::math::mat4();
-		*rotationMatrixY = VR::math::mat4::RotationY(mTotalEllapsedTime);
+		*rotationMatrixY = VR::math::mat4::RotationY(mTheta);
 
 		VR::math::mat4* rotationMatrixX = new VR::math::mat4();
-		*rotationMatrixX = VR::math::mat4::RotationX(mTotalEllapsedTime);
+		*rotationMatrixX = VR::math::mat4::RotationX(mTheta);
 		
 		addTransformation(rotationMatrixX);
 		addTransformation(rotationMatrixY);
 
 		while (mTransformationStack.size() > 0) {
 			for (Vertex& vertex : mVertices) {
-				//To do: overload vec3 and vec4 *= operator so that they can take in mat4's and modify their x, y, z, (w) in place instead of copying over each time.
 				vertex.Position = *(mTransformationStack.top()) * vertex.Position;
 			}
 			delete mTransformationStack.top();

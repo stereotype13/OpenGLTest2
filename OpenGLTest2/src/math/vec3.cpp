@@ -1,4 +1,5 @@
 #include "vec3.h"
+#include "mat4.h"
 #include <math.h>
 
 namespace VR { namespace math {
@@ -24,6 +25,17 @@ float& vec3::operator[](const int& index) {
 
 float vec3::operator*(const vec3& rhs) const {
 	return (x * rhs.x + y * rhs.y + z * rhs.z);
+}
+
+void vec3::operator*=(mat4& transform) {
+	float xOld = x;
+	float yOld = y;
+	float zOld = z;
+
+	x = transform.getElement(0 * 4 + 0) * xOld + transform.getElement(0 * 4 + 1) * yOld + transform.getElement(0 * 4 + 2) * zOld + transform.getElement(0 * 4 + 3);
+	y = transform.getElement(1 * 4 + 0) * xOld + transform.getElement(1 * 4 + 1) * yOld + transform.getElement(1 * 4 + 2) * zOld + transform.getElement(1 * 4 + 3);
+	z = transform.getElement(2 * 4 + 0) * xOld + transform.getElement(2 * 4 + 1) * yOld + transform.getElement(2 * 4 + 2) * zOld + transform.getElement(2 * 4 + 3);
+	
 }
 
 vec3 vec3::operator-(const vec3& rhs) const {

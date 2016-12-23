@@ -51,7 +51,7 @@ int main() {
 	clock.addListener(&renderer);
 	renderer.addRenderable(new VR::Box());
     
-    
+	clock.init();
     while (!glfwWindowShouldClose(window))
     {
         

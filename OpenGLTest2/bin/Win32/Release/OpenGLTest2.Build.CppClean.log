@@ -1,18 +1,25 @@
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\vc140.pdb
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\vec4.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\vec3.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\utils.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\mat4.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\main.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\rectangle.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\box.obj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.exe
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.ipdb
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.iobj
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.pdb
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.command.1.tlog
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.read.1.tlog
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.write.1.tlog
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.command.1.tlog
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.read.1.tlog
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.write.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\vc140.pdb
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\textloader.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\clock.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\vec4.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\vec3.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\utils.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\mat4.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\main.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\renderer.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\rectangle.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\openglshader.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\openglrenderer.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\openglindexbuffer.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\openglarraybuffer.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\box.obj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.exe
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.ipdb
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.iobj
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.pdb
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.command.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.read.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\cl.write.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.command.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.read.1.tlog
+c:\users\r\documents\opengltest2\opengltest2\bin\win32\release\opengltest2.tlog\link.write.1.tlog

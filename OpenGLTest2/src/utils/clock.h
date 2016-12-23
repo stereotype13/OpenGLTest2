@@ -21,6 +21,7 @@ namespace VR {
 			double mDeltaTime = 0.0;
 		public:
 			void addListener(ClockListener* listener);
+			void init();
 			void tick();
 		};
 	}

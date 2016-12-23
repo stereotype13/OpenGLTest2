@@ -21,6 +21,8 @@ public:
 
 	vec4& operator[](const int index);
 
+	const float& getElement(unsigned int index);
+
 	vec4 operator*(const vec4& rhs);
 
 	vec3 operator*(const vec3& rhs);

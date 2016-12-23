@@ -34,20 +34,24 @@ vec4& mat4::operator[](const int index) {
 	return mRows[index];
 }
 
+const float& mat4::getElement(unsigned int index) {
+	return mData[index];
+}
+
 vec4 mat4::operator*(const vec4& rhs) {
 	vec4 result;
-	result[0] = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3] * rhs.w;
-	result[1] = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3] * rhs.w;
-	result[2] = mData[2 * 4 + 0] * rhs.x + mData[2 * 4 + 1] * rhs.y + mData[2 * 4 + 2] * rhs.z + mData[2 * 4 + 3] * rhs.w;
-	result[3] = mData[3 * 4 + 0] * rhs.x + mData[3 * 4 + 1] * rhs.y + mData[3 * 4 + 2] * rhs.z + mData[3 * 4 + 3] * rhs.w;
+	result.x = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3] * rhs.w;
+	result.y = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3] * rhs.w;
+	result.z = mData[2 * 4 + 0] * rhs.x + mData[2 * 4 + 1] * rhs.y + mData[2 * 4 + 2] * rhs.z + mData[2 * 4 + 3] * rhs.w;
+	result.w = mData[3 * 4 + 0] * rhs.x + mData[3 * 4 + 1] * rhs.y + mData[3 * 4 + 2] * rhs.z + mData[3 * 4 + 3] * rhs.w;
 	return result;
 }
 
 vec3 mat4::operator*(const vec3& rhs) {
 	vec3 result;
-	result[0] = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3];
-	result[1] = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3];
-	result[2] = mData[2 * 4 + 0] * rhs.x + mData[2 * 4 + 1] * rhs.y + mData[2 * 4 + 2] * rhs.z + mData[2 * 4 + 3];
+	result.x = mData[0 * 4 + 0] * rhs.x + mData[0 * 4 + 1] * rhs.y + mData[0 * 4 + 2] * rhs.z + mData[0 * 4 + 3];
+	result.y = mData[1 * 4 + 0] * rhs.x + mData[1 * 4 + 1] * rhs.y + mData[1 * 4 + 2] * rhs.z + mData[1 * 4 + 3];
+	result.z = mData[2 * 4 + 0] * rhs.x + mData[2 * 4 + 1] * rhs.y + mData[2 * 4 + 2] * rhs.z + mData[2 * 4 + 3];
 	return result;
 }
 

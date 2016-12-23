@@ -23,7 +23,7 @@ namespace VR {
 		VR::OpenGLShader mShader;
 		VR::math::mat4 mPerspectiveMatrix, mViewMatrix;
 
-		GLfloat mTotalEllapsedTime = 0.0f;
+		GLfloat mTheta = 0.0f;
 
 		void refreshVertices();
 
