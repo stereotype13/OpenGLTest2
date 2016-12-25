@@ -23,3 +23,5 @@
 # etc
 *.ilk
 *.pdb
+*.obj
+*.idb
