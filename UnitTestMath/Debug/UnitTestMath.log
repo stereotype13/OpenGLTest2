@@ -1,6 +1,0 @@
-﻿  unittest1.cpp
-  vec3.cpp
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\math\vec3.cpp(1): warning C4627: '#include "vec3.h"': skipped when looking for precompiled header use
-  c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\math\vec3.cpp(1): note: Add directive to 'stdafx.h' or rebuild precompiled header
-c:\users\rhodel\documents\visual studio 2015\projects\opengltest2\opengltest2\src\math\vec3.cpp(38): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
-  Generating Code...
