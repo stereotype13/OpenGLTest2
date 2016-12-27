@@ -8,16 +8,20 @@ namespace VR {
 		glGenBuffers(1, &mVBO);
 		glBindBuffer(GL_ARRAY_BUFFER, mVBO);
 
-		//Allocate enough space on video card for mSize verticies, each with 3 position and 4 color (total 7) values.
-		glBufferData(GL_ARRAY_BUFFER, mSize * 7 * sizeof(GLfloat), 0, GL_STATIC_DRAW);
+		//Allocate enough space on video card for mSize verticies, each with 3 position, 4 color, and 2 texture (total 9) values.
+		glBufferData(GL_ARRAY_BUFFER, mSize * 9 * sizeof(GLfloat), 0, GL_STATIC_DRAW);
 
 		//position
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)0);
 
 		//color
 		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)((GLfloat*)0 + 3));
+		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)((GLfloat*)0 + 3));
+
+		//texture
+		glEnableVertexAttribArray(2);
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)((GLfloat*)0 + 7));
 	}
 
 	void OpenGLArrayBuffer::map() {
@@ -35,7 +39,9 @@ namespace VR {
 			mBuffer[4 + vertexCount] = vertex.Color.y;
 			mBuffer[5 + vertexCount] = vertex.Color.z;
 			mBuffer[6 + vertexCount] = vertex.Color.w;
-			mBuffer += 7;
+			mBuffer[7 + vertexCount] = vertex.TextureCoordinate.x;
+			mBuffer[8 + vertexCount] = vertex.TextureCoordinate.y;
+			mBuffer += 9;
 		}
 	}
 

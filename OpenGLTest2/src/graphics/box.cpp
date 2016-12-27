@@ -4,29 +4,29 @@ namespace VR {
 
 	Box::Box() {
 		//front
-		auto front1 = new Vertex(VR::math::vec3(-0.5f, 0.5f, 0.5f), VR::math::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+		auto front1 = new Vertex(VR::math::vec3(-0.5f, 0.5f, 0.5f), VR::math::vec4(1.0f, 0.0f, 0.0f, 1.0f), VR::math::vec2(0.0f, 1.0f));
 		mVertices.push_back(front1);
 
-		auto front2 = new Vertex(VR::math::vec3(-0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+		auto front2 = new Vertex(VR::math::vec3(-0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(0.0f, 0.0f));
 		mVertices.push_back(front2);
 
-		auto front3 = new Vertex(VR::math::vec3(0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 0.0f, 1.0f, 1.0f));
+		auto front3 = new Vertex(VR::math::vec3(0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 0.0f, 1.0f, 1.0f), VR::math::vec2(1.0f, 0.0f));
 		mVertices.push_back(front3);
 
-		auto front4 = new Vertex(VR::math::vec3(0.5f, 0.5f, 0.5f), VR::math::vec4(1.0f, 1.0f, 0.0f, 1.0f));
+		auto front4 = new Vertex(VR::math::vec3(0.5f, 0.5f, 0.5f), VR::math::vec4(1.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(1.0f, 1.0f));
 		mVertices.push_back(front4);
 
 		//back
-		auto back1 = new Vertex(VR::math::vec3(0.5f, 0.5f, -0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+		auto back1 = new Vertex(VR::math::vec3(0.5f, 0.5f, -0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(0.0f, 1.0f));
 		mVertices.push_back(back1);
 
-		auto back2 = new Vertex(VR::math::vec3(0.5f, -0.5f, -0.5f), VR::math::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+		auto back2 = new Vertex(VR::math::vec3(0.5f, -0.5f, -0.5f), VR::math::vec4(1.0f, 0.0f, 0.0f, 1.0f), VR::math::vec2(0.0f, 0.0f));
 		mVertices.push_back(back2);
 
-		auto back3 = new Vertex(VR::math::vec3(-0.5f, -0.5f, -0.5f), VR::math::vec4(1.0f, 1.0f, 0.0f, 1.0f));
+		auto back3 = new Vertex(VR::math::vec3(-0.5f, -0.5f, -0.5f), VR::math::vec4(1.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(1.0f, 0.0f));
 		mVertices.push_back(back3);
 
-		auto back4 = new Vertex(VR::math::vec3(-0.5f, 0.5f, -0.5f), VR::math::vec4(0.0f, 0.0f, 1.0f, 1.0f));
+		auto back4 = new Vertex(VR::math::vec3(-0.5f, 0.5f, -0.5f), VR::math::vec4(0.0f, 0.0f, 1.0f, 1.0f), VR::math::vec2(1.0f, 1.0f));
 		mVertices.push_back(back4);
 
 		//indices

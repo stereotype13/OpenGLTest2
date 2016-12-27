@@ -73,8 +73,8 @@ namespace VR {
 		VR::math::mat4* rotationMatrixX = new VR::math::mat4();
 		*rotationMatrixX = VR::math::mat4::RotationX(mTheta);
 		
-		addTransformation(rotationMatrixX);
-		addTransformation(rotationMatrixY);
+		//addTransformation(rotationMatrixX);
+		//addTransformation(rotationMatrixY);
 
 		while (mTransformationStack.size() > 0) {
 			for (Vertex& vertex : mVertices) {
@@ -87,6 +87,36 @@ namespace VR {
 		mShader.setPerspectiveMatrix(mPerspectiveMatrix);
 		mShader.setViewMatrix(mViewMatrix);
 
+	
+		mShader.setModelMatrix(*rotationMatrixX * *rotationMatrixY);
+
+		//temp texture stuff
+		// Black/white checkerboard
+		glActiveTexture(GL_TEXTURE0);
+		GLuint	textureID;
+		glGenTextures(1, &textureID);
+		float pixels[] = {
+			0.5f, 0.5f, 0.5f,   1.0f, 1.0f, 1.0f,
+			1.0f, 1.0f, 1.0f,   0.5f, 0.5f, 0.5f
+		};
+		glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+		//glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+		GLint tempTexture = glGetUniformLocation(mShader.getShaderProgram(), "ourTexture");
+		
+		//glUniform1i(tempTexture, 0);
+		//end texture stuff
+
 		mArrayBuffer.map();
 		mArrayBuffer.setData(mVertices);
 		mArrayBuffer.unmap();
@@ -96,7 +126,9 @@ namespace VR {
 		mIndexBuffer.unmap();
 
 		render();
-		
+
+		//temporary. delete this later!!!!
+		glDeleteTextures(1, &textureID);
 	}
 
 	void OpenGLRenderer::setPerspectiveMatrix(const math::mat4& perspectiveMatrix) {

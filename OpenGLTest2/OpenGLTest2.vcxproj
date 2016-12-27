@@ -157,6 +157,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\mat4.cpp" />
     <ClCompile Include="src\math\utils.cpp" />
+    <ClCompile Include="src\math\vec2.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
     <ClCompile Include="src\math\vec4.cpp" />
     <ClCompile Include="src\utils\clock.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="src\math\constants.h" />
     <ClInclude Include="src\math\mat4.h" />
     <ClInclude Include="src\math\utils.h" />
+    <ClInclude Include="src\math\vec2.h" />
     <ClInclude Include="src\math\vec3.h" />
     <ClInclude Include="src\math\vec4.h" />
     <ClInclude Include="src\utils\clock.h" />

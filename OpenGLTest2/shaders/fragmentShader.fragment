@@ -1,9 +1,18 @@
 #version 330 core 
 in vec4 ourColor;
+
+//do this for cube mapping(?)
+//in vec2 ourTexCoord;
+in vec3 ourTexCoord;
+
 out vec4 color; 
 uniform sampler2D ourTexture;
+uniform samplerCube cubemap;
 void main() 
 { 
 
-	color = ourColor;
+	//color = ourColor;
+	//color = texture(cubemap, ourTexCoord) * ourColor;
+	color = texture(cubemap, ourTexCoord) * ourColor;
+
 }

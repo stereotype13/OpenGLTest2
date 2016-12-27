@@ -95,6 +95,13 @@ namespace VR {
 		}
 	}
 
+	void OpenGLShader::setModelMatrix(const math::mat4& modelMatrix) const {
+		GLuint modelMatrixID = glGetUniformLocation(shaderProgram, "modelMatrix");
+		if (modelMatrixID != -1) {
+			glUniformMatrix4fv(modelMatrixID, 1, GL_TRUE, (const float*)&modelMatrix);
+		}
+	}
+
 	OpenGLShader::~OpenGLShader() {
 		glDeleteShader(shaderProgram);
 	}

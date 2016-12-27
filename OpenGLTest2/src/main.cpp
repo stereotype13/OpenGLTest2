@@ -67,6 +67,8 @@ int main() {
       
     glewInit();
 
+	glEnable(GL_TEXTURE_CUBE_MAP);
+
 	glViewport(0, 0, GLsizei(windowWidth), GLsizei(windowHeight));
 	
 	VR::OpenGLRenderer renderer;
@@ -86,6 +88,7 @@ int main() {
         
         /* Render here */
 		clock.tick();
+		
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
         

@@ -12,6 +12,8 @@ namespace VR {
 		void useShader() const;
 		void setPerspectiveMatrix(const math::mat4& perspectiveMatrix) const;
 		void setViewMatrix(const math::mat4& viewMatrix) const;
+		void setModelMatrix(const math::mat4& modelMatrix) const;
+		GLuint getShaderProgram() { return shaderProgram; }
 
 		~OpenGLShader() override;
 	};
