@@ -34,6 +34,9 @@ namespace VR {
 		void render() override;
 
 		void onTick(double delta) override;
+
+		//temporary. We should have an Application class or Window class being responsible for this matrix.
+		void setPerspectiveMatrix(const math::mat4& perspectiveMatrix);
 	};
 
 }

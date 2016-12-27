@@ -27,3 +27,5 @@
 *.idb
 *.tlog
 *.log
+*.db
+*.opendb

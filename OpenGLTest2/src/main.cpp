@@ -9,10 +9,31 @@
 
 #define LOG(x) std::cout << x << std::endl;
 
+unsigned int windowHeight = 480;
+unsigned int windowWidth = 640;
 
-class Buffer {
+VR::OpenGLRenderer* pRenderer = NULL;
+// Callback function to resize the window and set the viewport to the correct size
+void resizeWindow(GLFWwindow *window, GLsizei newWidth, GLsizei newHeight)
+{
+	
 
-};
+	// Keep track of the new width and height of the window
+	windowWidth = float(newWidth);
+	windowHeight = float(newHeight);
+
+	// Recalculate the projection matrix
+	VR::math::mat4 projectionMatrix = VR::math::mat4::Perspective(90.0f, windowWidth / windowHeight, 0.1f, 100.0f);
+
+	// Viewport is the entire window
+	glViewport(0, 0, windowWidth, windowHeight);
+
+	if (pRenderer == NULL)
+		return;
+
+	pRenderer->setPerspectiveMatrix(projectionMatrix);
+}
+
 
 int main() {
 
@@ -31,7 +52,8 @@ int main() {
 #endif
     
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+
+    window = glfwCreateWindow(windowWidth, windowHeight, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -44,11 +66,18 @@ int main() {
     /* Loop until the user closes the window */
       
     glewInit();
+
+	glViewport(0, 0, GLsizei(windowWidth), GLsizei(windowHeight));
 	
 	VR::OpenGLRenderer renderer;
-	VR::utils::Clock clock;
+	pRenderer = &renderer;
 
+	glfwSetWindowSizeCallback(window, resizeWindow);
+
+	VR::utils::Clock clock;
 	clock.addListener(&renderer);
+
+	//Renderer will free memory on the heap.
 	renderer.addRenderable(new VR::Box());
     
 	clock.init();

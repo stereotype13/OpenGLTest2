@@ -99,4 +99,8 @@ namespace VR {
 		
 	}
 
+	void OpenGLRenderer::setPerspectiveMatrix(const math::mat4& perspectiveMatrix) {
+		mPerspectiveMatrix = perspectiveMatrix;
+	}
+
 }
