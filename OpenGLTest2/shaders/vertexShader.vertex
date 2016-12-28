@@ -2,22 +2,31 @@
 
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec4 color; 
-layout (location = 2) in vec2 texcoord;
+layout (location = 2) in vec2 uv;
+layout (location = 3) in vec3 surfaceNormal;
 
-out vec4 ourColor; 
-//Do this when cube mapping(?)
-//out vec2 ourTexCoord;
-out vec3 ourTexCoord;
+out DATA {
+	vec4 color; 
+	vec2 uv;
+	vec3 surfaceNormal;
+	vec3 position;
+
+} vs_out;
 
 uniform mat4 perspectiveMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
+
 void main() 
 { 
-	gl_Position = perspectiveMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); 
-	ourColor = color; 
+	mat4 VM = viewMatrix * modelMatrix;
+	mat4 PVM = perspectiveMatrix * VM;
+	
+	gl_Position = PVM * vec4(position, 1.0); 
+		
+	vs_out.color = color; 
+	vs_out.uv = uv;
+	vs_out.surfaceNormal =  (modelMatrix * vec4(surfaceNormal, 1.0)).xyz;
+	vs_out.position = (modelMatrix * vec4(position, 1.0)).xyz;
 
-	//Do this when cube mapping(?)
-	//ourTexCoord = texcoord;
-	ourTexCoord = position; //cube map automatically turns positions into texture coords(?)
 }

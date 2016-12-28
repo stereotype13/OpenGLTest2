@@ -1,18 +1,25 @@
 #version 330 core 
 in vec4 ourColor;
 
-//do this for cube mapping(?)
-//in vec2 ourTexCoord;
-in vec3 ourTexCoord;
+in DATA {
+	vec4 color; 
+	vec2 uv;
+	vec3 surfaceNormal;
+	vec3 position;
+
+} fs_in;
 
 out vec4 color; 
 uniform sampler2D ourTexture;
-uniform samplerCube cubemap;
+
 void main() 
 { 
+	vec3 lightPosition = vec3(2.0f, 2.0f, 2.0f);
+	vec3 lightDirection1 = vec3(1.0f, 1.0f, 1.0f);
+	vec3 lightDirection2 = vec3(-1.0f, 1.0f, 1.0f);
 
+	float distance = length(lightPosition - fs_in.position);
 	//color = ourColor;
-	//color = texture(cubemap, ourTexCoord) * ourColor;
-	color = texture(cubemap, ourTexCoord) * ourColor;
+	color = (0.9 * clamp(dot(lightDirection1, fs_in.surfaceNormal), 0.0, 1.0) + 0.1) * 10.0 * (1.0 / (distance * distance)) * (1.0 * texture(ourTexture, fs_in.uv));
 
 }

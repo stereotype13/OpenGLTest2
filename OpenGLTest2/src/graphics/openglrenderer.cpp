@@ -14,12 +14,12 @@ namespace VR {
 
 		mShader.init();
 
-		//temporary. since we're doing a cube, it will have 8 vertices
-		mArrayBuffer.init(8);
+		//temporary. since we're doing a cube, it will have 6 * 4 vertices
+		mArrayBuffer.init(24);
 		mIndexBuffer.init(36);
 
 		mPerspectiveMatrix = VR::math::mat4::Perspective(90.0f, 4.0f / 3.0f, 0.1f, 100.0f);
-		mViewMatrix = VR::math::mat4::LookAt(VR::math::vec3(0.0f, 0.0f, -1.0f), VR::math::vec3(0.0f, 0.0f, 0.0f), VR::math::vec3(0.0f, 1.0f, 0.0f));
+		mViewMatrix = VR::math::mat4::LookAt(VR::math::vec3(0.0f, 0.0f, 1.0f), VR::math::vec3(0.0f, 0.0f, 0.0f), VR::math::vec3(0.0f, 1.0f, 0.0f));
 	}
 
 	void OpenGLRenderer::addRenderable(Renderable* renderable) {
@@ -99,22 +99,17 @@ namespace VR {
 			0.5f, 0.5f, 0.5f,   1.0f, 1.0f, 1.0f,
 			1.0f, 1.0f, 1.0f,   0.5f, 0.5f, 0.5f
 		};
-		glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+		glBindTexture(GL_TEXTURE_2D, textureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 		//glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 		GLint tempTexture = glGetUniformLocation(mShader.getShaderProgram(), "ourTexture");
 		
-		//glUniform1i(tempTexture, 0);
+		glUniform1i(tempTexture, 0);
 		//end texture stuff
 
 		mArrayBuffer.map();
