@@ -20,6 +20,24 @@ namespace VR {
 
 		mPerspectiveMatrix = VR::math::mat4::Perspective(90.0f, 4.0f / 3.0f, 0.1f, 100.0f);
 		mViewMatrix = VR::math::mat4::LookAt(VR::math::vec3(0.0f, 0.0f, 1.0f), VR::math::vec3(0.0f, 0.0f, 0.0f), VR::math::vec3(0.0f, 1.0f, 0.0f));
+
+		//temp texture stuff
+		// Black/white checkerboard
+		glActiveTexture(GL_TEXTURE0);
+		
+		glGenTextures(1, &mTextureID);
+		float pixels[] = {
+			0.5f, 0.5f, 0.5f,   1.0f, 1.0f, 1.0f,
+			1.0f, 1.0f, 1.0f,   0.5f, 0.5f, 0.5f
+		};
+		glBindTexture(GL_TEXTURE_2D, mTextureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+		//glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 	}
 
 	void OpenGLRenderer::addRenderable(Renderable* renderable) {
@@ -90,23 +108,7 @@ namespace VR {
 	
 		mShader.setModelMatrix(*rotationMatrixX * *rotationMatrixY);
 
-		//temp texture stuff
-		// Black/white checkerboard
-		glActiveTexture(GL_TEXTURE0);
-		GLuint	textureID;
-		glGenTextures(1, &textureID);
-		float pixels[] = {
-			0.5f, 0.5f, 0.5f,   1.0f, 1.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,   0.5f, 0.5f, 0.5f
-		};
-		glBindTexture(GL_TEXTURE_2D, textureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-		//glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+		
 		GLint tempTexture = glGetUniformLocation(mShader.getShaderProgram(), "ourTexture");
 		
 		glUniform1i(tempTexture, 0);
@@ -123,11 +125,15 @@ namespace VR {
 		render();
 
 		//temporary. delete this later!!!!
-		glDeleteTextures(1, &textureID);
+		
 	}
 
 	void OpenGLRenderer::setPerspectiveMatrix(const math::mat4& perspectiveMatrix) {
 		mPerspectiveMatrix = perspectiveMatrix;
+	}
+
+	OpenGLRenderer::~OpenGLRenderer() {
+		glDeleteTextures(1, &mTextureID);
 	}
 
 }

@@ -27,6 +27,9 @@ namespace VR {
 
 		void refreshVertices();
 
+		//temp texture stuff
+		GLuint	mTextureID;
+
 	public:
 		OpenGLRenderer();
 		void addRenderable(Renderable* renderable) override;
@@ -37,6 +40,7 @@ namespace VR {
 
 		//temporary. We should have an Application class or Window class being responsible for this matrix.
 		void setPerspectiveMatrix(const math::mat4& perspectiveMatrix);
+		~OpenGLRenderer();
 	};
 
 }
