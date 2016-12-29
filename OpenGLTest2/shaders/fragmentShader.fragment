@@ -17,24 +17,26 @@ void main()
 	float La = 0.1; //ambient light source intensity
 	float Ka = 1.0; //ambient reflectivity
 	float Ld = 1.0; //diffuse light source intensity
-	float Kd = 0.8; //diffuse reflectivity
+	float Kd = 1.0; //diffuse reflectivity
 	float Ls = 1.0; //specular light source intensity
-	float Ks = 0.8; //Specular reflectivity
-	float Shininess = 2; //Specular shininess faco
+	float Ks = 1.0; //Specular reflectivity
+	float Shininess = 100; //Specular shininess faco
 
-	vec3 lightPosition = 100 * vec3(1.0f, 1.0f, 1.0f);
-	vec3 s = normalize(vec3(lightPosition - fs_in.position));
+	vec3 lightPosition = 100 * vec3(0.0f, 0.0f, 1.0f);
+	vec3 n = normalize(fs_in.position);
+	vec3 s = normalize(lightPosition - fs_in.position);
 	vec3 v = normalize(-fs_in.position);
-	vec3 r = reflect(s, fs_in.surfaceNormal);
+	vec3 h = normalize(v + s); //halfway vector (used in specular calculation to improve performance)
+	//vec3 r = reflect(s, fs_in.surfaceNormal);  //no longer needed if using h vector
 
 	float ambient = La * Ka;
 
-	float sDotN = max(dot(s, fs_in.surfaceNormal), 0.0);
+	float sDotN = max(dot(s, n), 0.0);
 	float diffuse = Ld * Kd * sDotN;
 	
 	float spec = 0.0;
 	if( sDotN > 0.0 )
-		spec = Ls * Ks * pow( max( dot(r,v), 0.0 ), Shininess );
+		spec = Ls * Ks * pow( max( dot(h,n), 0.0 ), Shininess );
 
 	float distance = length(lightPosition - fs_in.position);
 	//color = ourColor;
