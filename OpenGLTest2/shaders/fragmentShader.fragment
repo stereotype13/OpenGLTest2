@@ -20,7 +20,7 @@ void main()
 	float Kd = 1.0; //diffuse reflectivity
 	float Ls = 1.0; //specular light source intensity
 	float Ks = 1.0; //Specular reflectivity
-	float Shininess = 200; //Specular shininess faco
+	float Shininess = 80; //Specular shininess faco
 
 	vec3 lightPosition = 1000 * vec3(1.0f, 1.0f, 1.0f);
 	vec3 n = normalize(fs_in.position);
