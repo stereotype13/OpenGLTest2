@@ -14,18 +14,18 @@ uniform sampler2D ourTexture;
 
 void main() 
 { 
-	float La = 0.1; //ambient light source intensity
+	float La = 0.2; //ambient light source intensity
 	float Ka = 1.0; //ambient reflectivity
-	float Ld = 1.0; //diffuse light source intensity
+	float Ld = 0.4; //diffuse light source intensity
 	float Kd = 1.0; //diffuse reflectivity
 	float Ls = 1.0; //specular light source intensity
 	float Ks = 1.0; //Specular reflectivity
-	float Shininess = 100; //Specular shininess faco
+	float Shininess = 200; //Specular shininess faco
 
-	vec3 lightPosition = 100 * vec3(0.0f, 0.0f, 1.0f);
+	vec3 lightPosition = 1000 * vec3(1.0f, 1.0f, 1.0f);
 	vec3 n = normalize(fs_in.position);
 	vec3 s = normalize(lightPosition - fs_in.position);
-	vec3 v = normalize(-fs_in.position);
+	vec3 v = normalize(fs_in.position);
 	vec3 h = normalize(v + s); //halfway vector (used in specular calculation to improve performance)
 	//vec3 r = reflect(s, fs_in.surfaceNormal);  //no longer needed if using h vector
 
