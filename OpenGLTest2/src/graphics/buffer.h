@@ -8,6 +8,7 @@ namespace VR {
 		unsigned int mSize;
 	public:
 		virtual void init(unsigned int size) = 0;
+		virtual void resize(unsigned int size) = 0;
 	};
 
 }

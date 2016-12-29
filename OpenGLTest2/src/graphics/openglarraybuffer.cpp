@@ -28,6 +28,13 @@ namespace VR {
 		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 12 * sizeof(GLfloat), (GLvoid*)((GLfloat*)0 + 9));
 	}
 
+	void OpenGLArrayBuffer::resize(unsigned int size) {
+		mSize = size;
+
+		glBindBuffer(GL_ARRAY_BUFFER, mVBO);
+		glBufferData(GL_ARRAY_BUFFER, mSize * 12 * sizeof(GLfloat), NULL, GL_STATIC_DRAW);
+	}
+
 	void OpenGLArrayBuffer::map() {
 		glBindBuffer(GL_ARRAY_BUFFER, mVBO);
 		mBuffer = (GLfloat*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);

@@ -49,7 +49,7 @@ namespace VR {
 		auto left2 = new Vertex(VR::math::vec3(-0.5f, -0.5f, -0.5f), VR::math::vec4(1.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(0.0f, 0.0f), VR::math::vec3(-1.0f, 0.0f, 0.0f));
 		mVertices.push_back(left2);
 
-		auto left3 = new Vertex(VR::math::vec3(-0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(1.0f, 0.0f), VR::math::vec3(-1.0f, 0.0f, 1.0f));
+		auto left3 = new Vertex(VR::math::vec3(-0.5f, -0.5f, 0.5f), VR::math::vec4(0.0f, 1.0f, 0.0f, 1.0f), VR::math::vec2(1.0f, 0.0f), VR::math::vec3(-1.0f, 0.0f, 0.0f));
 		mVertices.push_back(left3);
 
 		auto left4 = new Vertex(VR::math::vec3(-0.5f, 0.5f, 0.5f), VR::math::vec4(1.0f, 0.0f, 0.0f, 1.0f), VR::math::vec2(1.0f, 1.0f), VR::math::vec3(-1.0f, 0.0f, 0.0f));

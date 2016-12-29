@@ -13,6 +13,12 @@ namespace VR {
 
 		
 	}
+
+	void OpenGLIndexBuffer::resize(unsigned int size) {
+		mSize = size;
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mVBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, mSize * sizeof(GLfloat), 0, GL_STATIC_DRAW);
+	}
 	
 	void OpenGLIndexBuffer::map() {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mVBO);
