@@ -72,7 +72,7 @@ namespace VR {
 		}
 	}
 
-	void OpenGLRenderer::onTick(double delta) {
+	void OpenGLRenderer::onTick(const double& delta) {
 		//do matrix transformations here
 		//A lot of this stuff (i.e. creating transformation matrices) will eventually go into an 'Application' class, which would call the render() function.
 		refreshVertices();

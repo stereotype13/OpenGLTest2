@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <FreeImage/FreeImage.h>
 #include "graphics/box.h"
 #include "graphics/rectangle.h"
 #include "utils/clock.h"
 #include "graphics/openglrenderer.h"
+
 
 #define LOG(x) std::cout << x << std::endl;
 
@@ -36,7 +38,8 @@ void resizeWindow(GLFWwindow *window, GLsizei newWidth, GLsizei newHeight)
 
 
 int main() {
-
+	//Initialize FreeImage
+	FreeImage_Initialise(TRUE);
     
     GLFWwindow* window;
     

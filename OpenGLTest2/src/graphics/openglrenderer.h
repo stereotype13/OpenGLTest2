@@ -36,7 +36,7 @@ namespace VR {
 		void addTransformation(math::mat4* transformation) override;
 		void render() override;
 
-		void onTick(double delta) override;
+		void onTick(const double& delta) override;
 
 		//temporary. We should have an Application class or Window class being responsible for this matrix.
 		void setPerspectiveMatrix(const math::mat4& perspectiveMatrix);

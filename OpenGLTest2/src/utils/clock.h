@@ -12,7 +12,7 @@ namespace VR {
 		public:
 			class ClockListener {
 			public:
-				virtual void onTick(double delta) = 0;
+				virtual void onTick(const double& delta) = 0;
 			};
 
 		private:
