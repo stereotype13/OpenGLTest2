@@ -3,6 +3,7 @@ in vec4 ourColor;
 
 in DATA {
 	vec4 color; 
+	float textureID;
 	vec2 uv;
 	vec3 surfaceNormal;
 	vec3 position;
@@ -10,10 +11,11 @@ in DATA {
 } fs_in;
 
 out vec4 color; 
-uniform sampler2D ourTexture;
+uniform sampler2D textures[2];
 
 void main() 
 { 
+	int tid = int(fs_in.textureID + 0.1);
 	float La = 0.2; //ambient light source intensity
 	float Ka = 1.0; //ambient reflectivity
 	float Ld = 0.4; //diffuse light source intensity
@@ -40,5 +42,6 @@ void main()
 
 	float distance = length(lightPosition - fs_in.position);
 	//color = ourColor;
-	color =  (ambient + diffuse + spec) * texture(ourTexture, fs_in.uv) * fs_in.color;
+	color =  (ambient + diffuse + spec) * texture(textures[tid], fs_in.uv) * fs_in.color;
+	
 }

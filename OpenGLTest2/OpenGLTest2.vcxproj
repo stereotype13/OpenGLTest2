@@ -154,6 +154,8 @@
     <ClCompile Include="src\graphics\openglindexbuffer.cpp" />
     <ClCompile Include="src\graphics\openglrenderer.cpp" />
     <ClCompile Include="src\graphics\openglshader.cpp" />
+    <ClCompile Include="src\graphics\opengltexture.cpp" />
+    <ClCompile Include="src\graphics\opengltexturemanager.cpp" />
     <ClCompile Include="src\graphics\rectangle.cpp" />
     <ClCompile Include="src\graphics\renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -180,10 +182,13 @@
     <ClInclude Include="src\graphics\openglindexbuffer.h" />
     <ClInclude Include="src\graphics\openglrenderer.h" />
     <ClInclude Include="src\graphics\openglshader.h" />
+    <ClInclude Include="src\graphics\opengltexture.h" />
+    <ClInclude Include="src\graphics\opengltexturemanager.h" />
     <ClInclude Include="src\graphics\rectangle.h" />
     <ClInclude Include="src\graphics\renderable.h" />
     <ClInclude Include="src\graphics\renderer.h" />
     <ClInclude Include="src\graphics\shader.h" />
+    <ClInclude Include="src\graphics\texture.h" />
     <ClInclude Include="src\graphics\vertex.h" />
     <ClInclude Include="src\math\constants.h" />
     <ClInclude Include="src\math\mat4.h" />

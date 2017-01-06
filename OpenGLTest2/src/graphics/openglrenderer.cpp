@@ -38,6 +38,20 @@ namespace VR {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 		//glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+
+		glActiveTexture(GL_TEXTURE1);
+
+		glGenTextures(1, &mTextureID);
+		float pixels2[] = {
+			0.5f, 0.5f, 0.5f,   0.5f, 0.5f, 0.5f,
+			0.5f, 0.5f, 0.5f,   0.5f, 0.5f, 0.5f
+		};
+		glBindTexture(GL_TEXTURE_2D, mTextureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_FLOAT, pixels2);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	}
 
 	void OpenGLRenderer::addRenderable(Renderable* renderable) {
@@ -109,9 +123,11 @@ namespace VR {
 		mShader.setModelMatrix(*rotationMatrixX * *rotationMatrixY);
 
 		
-		GLint tempTexture = glGetUniformLocation(mShader.getShaderProgram(), "ourTexture");
+		GLint tempTexture = glGetUniformLocation(mShader.getShaderProgram(), "textures");
 		
-		glUniform1i(tempTexture, 0);
+		const GLint asdf[2]{0, 1};
+		glUniform1iv(tempTexture, 2, asdf);
+
 		//end texture stuff
 
 		mArrayBuffer.map();
@@ -125,7 +141,8 @@ namespace VR {
 		render();
 
 		//temporary. delete this later!!!!
-		
+		delete rotationMatrixX;
+		delete rotationMatrixY;
 	}
 
 	void OpenGLRenderer::setPerspectiveMatrix(const math::mat4& perspectiveMatrix) {
